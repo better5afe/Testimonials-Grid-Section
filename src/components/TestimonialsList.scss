@@ -1,0 +1,10 @@
+@media (min-width: 1440px) {
+	.testimonials {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows: repeat(12, 1fr);
+        gap: 2rem;
+		height: 600px;
+		width: 1200px;
+	}
+}

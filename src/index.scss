@@ -1,0 +1,19 @@
+@use './assets/colors.scss';
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background: colors.$light-gray;
+	font-size: 1.3rem;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+}

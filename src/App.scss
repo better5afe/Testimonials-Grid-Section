@@ -1,0 +1,15 @@
+@use './assets/colors.scss';
+
+.main {
+	min-height: 100vh;
+	padding: 5em 1.5em;
+}
+
+@media (min-width: 1440px) {
+	.main {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+	}
+}
