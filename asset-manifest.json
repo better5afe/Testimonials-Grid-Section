@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Testimonials-Grid-Section/static/css/main.155e1555.css",
+    "main.js": "/Testimonials-Grid-Section/static/js/main.1ff81b65.js",
+    "index.html": "/Testimonials-Grid-Section/index.html",
+    "main.155e1555.css.map": "/Testimonials-Grid-Section/static/css/main.155e1555.css.map",
+    "main.1ff81b65.js.map": "/Testimonials-Grid-Section/static/js/main.1ff81b65.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.155e1555.css",
+    "static/js/main.1ff81b65.js"
+  ]
+}
