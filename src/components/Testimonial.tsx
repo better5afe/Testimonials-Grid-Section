@@ -10,7 +10,6 @@ const Testimonial: React.FC<TestimonialProps> = ({
 	isVerified,
 	introduction,
 	comment,
-	isLoading,
 }) => {
 	return (
 		<div className={`testimonial testimonial--${id}`}>

@@ -1,10 +1,18 @@
 @use '../assets/colors.scss';
+@import url('../assets/animations.scss');
 
 .testimonial {
 	margin-top: 1em;
 	padding: 2em 2.2em;
 	border-radius: 1.5rem;
+	box-shadow: 10px 11px 24px -13px colors.$very-dark-grayish-blue;
 	color: colors.$light-grayish-blue;
+	overflow: hidden;
+	transition: transform 0.3s;
+
+	&:hover {
+		transform: scale(1.02);
+	}
 
 	&--1 {
 		position: relative;

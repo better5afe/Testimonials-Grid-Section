@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import TestimonialsList from './components/TestimonialsList';
+import Loader from './components/Loader';
 import { TestimonialObject } from './models/interfaces';
 
 import './App.scss';
@@ -7,40 +8,53 @@ import './App.scss';
 const App = () => {
 	const [testimonials, setTestimonials] = useState<TestimonialObject[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
-	const [error, setError] = useState(false);
+	const [error, setError] = useState({
+		isError: false,
+		errorMsg: '',
+	});
 
 	useEffect(() => {
-		const fetchJobs = async () => {
-			setIsLoading(true);
-			setError(false);
+		setIsLoading(true);
 
-			try {
-				const response = await fetch(
-					'https://testimonials-section-fdc68-default-rtdb.asia-southeast1.firebasedatabase.app/testimonials.json'
-				);
+		setTimeout(() => {
+			const fetchTestimonials = async () => {
+				try {
+					const response = await fetch(
+						'https://testimonials-section-fdc68-default-rtdb.asia-southeast1.firebasedatabase.app/testimonials.json'
+					);
+					if (!response.ok) {
+						setIsLoading(false);
+						setError({
+							isError: true,
+							errorMsg: 'Something went wrong. Please try again later.',
+						});
+						return;
+					}
+					const data = await response.json();
+					console.log(data);
 
-				if (!response.ok) {
 					setIsLoading(false);
-					setError(true);
-					return;
+					setTestimonials(data);
+				} catch (error) {
+					setIsLoading(false);
+					setError({
+						isError: true,
+						errorMsg: 'Something went wrong. Please try again later.',
+					});
 				}
+			};
 
-				const data = await response.json();
-				console.log(data);
-				setIsLoading(false);
-				setTestimonials(data);
-			} catch (error) {
-				setIsLoading(false);
-				setError(true);
-			}
-		};
-
-		fetchJobs();
+			fetchTestimonials();
+		}, 1800);
 	}, []);
 
 	return (
 		<main className='main'>
-			<TestimonialsList data={testimonials} isLoading={isLoading} />
+			{isLoading && <Loader />}
+			{!isLoading && error.isError && (
+				<p className='main__error'>{error.errorMsg}</p>
+			)}
+			{!isLoading && !error.isError && <TestimonialsList data={testimonials} />}
 		</main>
 	);
 };

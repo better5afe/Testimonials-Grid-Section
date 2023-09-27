@@ -9,7 +9,6 @@ export interface TestimonialObject {
 
 export interface TestimonialsListProps {
 	data: TestimonialObject[];
-	isLoading: boolean;
 }
 
 export interface TestimonialProps {
@@ -19,9 +18,8 @@ export interface TestimonialProps {
 	isVerified: boolean;
 	introduction: string;
 	comment: string;
-	isLoading: boolean;
 }
 
 export interface SvgProps {
-	className: string
+	className: string;
 }
