@@ -1,4 +1,7 @@
 $rotate: rotate 0.8s linear infinite;
+$slide-up: slide-up 2s forwards;
+$slide-down: slide-down 2s forwards;
+$slide-to-right: slide-to-right 2s forwards;
 
 @keyframes rotate {
 	from {
@@ -7,5 +10,41 @@ $rotate: rotate 0.8s linear infinite;
 
 	to {
 		transform: rotate(360deg);
+	}
+}
+
+@keyframes slide-up {
+	from {
+		transform: translateY(50%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-down {
+	from {
+		transform: translateY(-50%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-to-right {
+	from {
+		transform: translateX(-50%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
 	}
 }

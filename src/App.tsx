@@ -45,7 +45,7 @@ const App = () => {
 			};
 
 			fetchTestimonials();
-		}, 1800);
+		}, 1000);
 	}, []);
 
 	return (
