@@ -13,8 +13,26 @@ const App = () => {
 		errorMsg: '',
 	});
 
+	const reveal = () => {
+		const thirdTestimonial= document.getElementById('3');
+		const fourthTestimonial = document.getElementById('4');
+		const fifthTestimonial = document.getElementById('5');
+
+		let testimonials = [thirdTestimonial, fourthTestimonial, fifthTestimonial];
+		for (let i = 0; i < testimonials.length; i++) {
+			let windowHeight = window.innerHeight;
+			let elementTop = testimonials[i]!.getBoundingClientRect().top;
+			let elementVisible = 150;
+			if (elementTop < windowHeight - elementVisible) {
+				testimonials[i]!.classList.add('visible');
+			} 
+		}
+	};
+
 	useEffect(() => {
 		setIsLoading(true);
+
+		window.addEventListener('scroll', reveal);
 
 		setTimeout(() => {
 			const fetchTestimonials = async () => {

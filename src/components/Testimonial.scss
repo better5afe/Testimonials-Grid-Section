@@ -2,27 +2,30 @@
 @use '../assets/animations.scss';
 
 .testimonial {
+	position: relative;
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: transform 2s, opacity 2s;
 	margin-top: 1em;
 	padding: 2em 2.2em;
 	border-radius: 1.5rem;
 	box-shadow: 10px 11px 24px -13px colors.$very-dark-grayish-blue;
 	color: colors.$light-grayish-blue;
 	overflow: hidden;
-	transition: transform 0.3s;
-
-	&:hover {
-		transform: scale(1.02);
-	}
 
 	&--1 {
 		position: relative;
 		margin: 0;
 		background: colors.$moderate-violet;
+		animation: animations.$slide-to-right;
 		z-index: 0;
 	}
 
 	&--2 {
 		background: colors.$very-dark-grayish-blue;
+		transform: translateX(50%);
+		animation: animations.$slide-to-left;
+		animation-delay: 1s;
 	}
 
 	&--3,
@@ -33,6 +36,7 @@
 
 	&--4 {
 		background: colors.$very-dark-blackish-blue;
+		transform: translateX(50%);
 	}
 
 	&__icon {
@@ -90,19 +94,24 @@
 	}
 }
 
+.visible {
+	transform: translateX(0);
+	opacity: 1;
+}
+
 @media (min-width: 1440px) {
 	.testimonial {
+		position: static;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		margin: 0;
+		transform: none;
+		transition: none;
 
 		&--1 {
 			grid-column: 1/7;
 			grid-row: 1/7;
-			transform: translateX(-50%);
-			opacity: 0;
-			animation: animations.$slide-to-right;
 			animation-delay: 1s;
 		}
 
@@ -110,7 +119,6 @@
 			grid-column: 7/10;
 			grid-row: 1/7;
 			transform: translateY(-50%);
-			opacity: 0;
 			animation: animations.$slide-down;
 			animation-delay: 3s;
 		}
@@ -119,7 +127,6 @@
 			grid-column: 1/4;
 			grid-row: 7/13;
 			transform: translateX(-50%);
-			opacity: 0;
 			animation: animations.$slide-to-right;
 			animation-delay: 4s;
 
@@ -131,8 +138,6 @@
 		&--4 {
 			grid-column: 4/10;
 			grid-row: 7/13;
-			transform: translateY(50%);
-			opacity: 0;
 			animation: animations.$slide-up;
 			animation-delay: 2s;
 		}
@@ -141,7 +146,6 @@
 			grid-column: 10/13;
 			grid-row: 1/13;
 			transform: translateY(50%);
-			opacity: 0;
 			animation: animations.$slide-up;
 		}
 
@@ -183,5 +187,10 @@
 		&__content {
 			font-size: 1.4rem;
 		}
+	}
+
+	.visible {
+		transform: none;
+		opacity: none;
 	}
 }

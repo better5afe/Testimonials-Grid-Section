@@ -12,7 +12,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
 	comment,
 }) => {
 	return (
-		<div className={`testimonial testimonial--${id}`}>
+		<div id={id.toString()} className={`testimonial testimonial--${id}`}>
 			{id === 1 && <QuoteIcon className='testimonial__icon' />}
 			<div className='testimonial__top'>
 				<div className='testimonial__user'>

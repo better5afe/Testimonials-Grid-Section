@@ -2,6 +2,7 @@ $rotate: rotate 0.8s linear infinite;
 $slide-up: slide-up 2s forwards;
 $slide-down: slide-down 2s forwards;
 $slide-to-right: slide-to-right 2s forwards;
+$slide-to-left: slide-to-left 2s forwards;
 
 @keyframes rotate {
 	from {
@@ -40,6 +41,18 @@ $slide-to-right: slide-to-right 2s forwards;
 @keyframes slide-to-right {
 	from {
 		transform: translateX(-50%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-to-left {
+	from {
+		transform: translateX(50%);
 		opacity: 0;
 	}
 
