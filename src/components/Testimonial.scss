@@ -11,7 +11,6 @@
 	border-radius: 1.5rem;
 	box-shadow: 10px 11px 24px -13px colors.$very-dark-grayish-blue;
 	color: colors.$light-grayish-blue;
-	overflow: hidden;
 
 	&--1 {
 		position: relative;
@@ -118,7 +117,6 @@
 		&--2 {
 			grid-column: 7/10;
 			grid-row: 1/7;
-			transform: translateY(-50%);
 			animation: animations.$slide-down;
 			animation-delay: 3s;
 		}
@@ -126,7 +124,6 @@
 		&--3 {
 			grid-column: 1/4;
 			grid-row: 7/13;
-			transform: translateX(-50%);
 			animation: animations.$slide-to-right;
 			animation-delay: 4s;
 
